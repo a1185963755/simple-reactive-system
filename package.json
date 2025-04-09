@@ -1,0 +1,17 @@
+{
+  "name": "simple-reactive-system",
+  "version": "1.0.0",
+  "description": "一个简单的Vue响应式系统实现",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node src/index.js"
+  },
+  "keywords": [
+    "vue",
+    "reactive",
+    "javascript"
+  ],
+  "author": "",
+  "license": "MIT"
+}
