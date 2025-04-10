@@ -7,3 +7,4 @@ export function hasChanged(val, newValue) {
 }
 
 export const RAW = Symbol("raw");
+export const ITERATE_KEY = Symbol("iterate");
