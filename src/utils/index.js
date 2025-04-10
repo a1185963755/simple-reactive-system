@@ -5,3 +5,5 @@ export function isObject(obj) {
 export function hasChanged(val, newValue) {
   return !Object.is(val, newValue);
 }
+
+export const RAW = Symbol("raw");
