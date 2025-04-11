@@ -1,3 +1,4 @@
+import computed from "./core/computed.js";
 import effect from "./core/effect.js";
 import reactive from "./core/reactive.js";
 
@@ -14,8 +15,20 @@ const obj = {
 
 const proxyObj = reactive(obj);
 
-effect(() => {
-  console.log(proxyObj.a);
+// effect(() => {
+//   console.log(proxyObj.b);
+// });
+
+// proxyObj.b = 2;
+
+const sum = computed(() => {
+  console.log("执行了 sum");
+
+  return proxyObj.a + proxyObj.b;
 });
 
-proxyObj.a = 2;
+effect(() => {
+  console.log(sum.value);
+});
+
+proxyObj.a = 5;
