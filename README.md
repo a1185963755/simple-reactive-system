@@ -21,34 +21,35 @@
 ## 技术栈
 
 - JavaScript：使用原生JavaScript实现响应式系统
-- Jest：单元测试框架，确保功能的正确性
 
 ## 项目结构
 
 ```
 src/
-  ├── reactive.js     # 响应式核心实现
-  ├── effect.js      # 副作用函数收集与触发
-  ├── dep.js         # 依赖管理
-  └── index.js       # 入口文件
+  ├── constants/       # 常量定义
+  │   └── index.js     # 导出所有常量
+  ├── core/           # 核心功能模块
+  │   ├── computed.js  # 计算属性实现
+  │   ├── effect.js    # 副作用函数管理
+  │   ├── reactive.js  # 响应式对象创建
+  │   └── watch.js     # 监听器实现
+  ├── effect/         # 依赖处理模块
+  │   ├── track.js     # 依赖收集实现
+  │   └── trigger.js   # 依赖触发实现
+  ├── handlers/       # 代理处理器
+  │   ├── behavior/    # 不同数据类型的处理行为
+  │   └── index.js     # 处理器统一导出
+  ├── utils/          # 工具函数
+  │   └── index.js     # 通用工具方法
+  └── index.js        # 入口文件
 ```
 
 ## 使用方法
 
-1. 安装依赖：
-```bash
-npm install
-```
-
-2. 开发模式：
 ```bash
 npm run dev
 ```
 
-3. 运行测试：
-```bash
-npm test
-```
 
 ## 实现思路
 
@@ -56,6 +57,8 @@ npm test
 2. 在get操作时收集依赖（track），建立数据属性与副作用函数的对应关系
 3. 在set操作时触发依赖（trigger），执行相关的副作用函数
 4. 使用WeakMap、Map和Set数据结构来管理依赖关系
+5. 实现计算属性（computed）和监听器（watch）等高级特性
+6. 处理数组、对象等不同数据类型的响应式转换
 
 ## 许可证
 
