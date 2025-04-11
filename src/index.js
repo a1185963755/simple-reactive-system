@@ -1,6 +1,7 @@
 import computed from "./core/computed.js";
 import effect from "./core/effect.js";
 import reactive from "./core/reactive.js";
+import watch from "./core/watch.js";
 
 const obj = {
   a: 1,
@@ -27,8 +28,14 @@ const sum = computed(() => {
   return proxyObj.a + proxyObj.b;
 });
 
-effect(() => {
-  console.log(sum.value);
-});
-
+watch(
+  sum.value,
+  (newValue, oldValue) => {
+    console.log("sum 变化了");
+    console.log(newValue, oldValue);
+  },
+  {
+    immediate: true,
+  }
+);
 proxyObj.a = 5;
